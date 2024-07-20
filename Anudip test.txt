@@ -1,0 +1,47 @@
+public class TemperatureRecorder {
+    public static void main(String[] args) {
+        // Initialize an array with temperatures recorded over a week (7 days)
+        int[] temperatures = {28, 30, 29, 31, 27, 26, 32}; // Example temperatures in Celsius
+
+        // Calculate and print the average temperature for the week
+        double averageTemperature = calculateAverageTemperature(temperatures);
+        System.out.println("Average temperature for the week: " + averageTemperature + " °C");
+
+        // Find and print the highest and lowest temperatures recorded
+        int highestTemperature = findHighestTemperature(temperatures);
+        int lowestTemperature = findLowestTemperature(temperatures);
+        System.out.println("Highest temperature recorded: " + highestTemperature + " °C");
+        System.out.println("Lowest temperature recorded: " + lowestTemperature + " °C");
+    }
+
+    // Method to calculate average temperature
+    public static double calculateAverageTemperature(int[] temperatures) {
+        int sum = 0;
+        for (int temp : temperatures) {
+            sum += temp;
+        }
+        return (double) sum / temperatures.length;
+    }
+
+    // Method to find highest temperature
+    public static int findHighestTemperature(int[] temperatures) {
+        int maxTemp = temperatures[0];
+        for (int i = 1; i < temperatures.length; i++) {
+            if (temperatures[i] > maxTemp) {
+                maxTemp = temperatures[i];
+            }
+        }
+        return maxTemp;
+    }
+
+    // Method to find lowest temperature
+    public static int findLowestTemperature(int[] temperatures) {
+        int minTemp = temperatures[0];
+        for (int i = 1; i < temperatures.length; i++) {
+            if (temperatures[i] < minTemp) {
+                minTemp = temperatures[i];
+            }
+        }
+        return minTemp;
+    }
+}
